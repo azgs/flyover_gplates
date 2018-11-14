@@ -52,7 +52,7 @@ def single_point():
 
     # TODO agreed on default params (or not, and fail on inalid params)
     # TODO type safety checking - float/string/other
-    reconstuct_time = request.args.get('time', 0)
+    reconstuct_time = request.args.get('time')
     latitude = request.args.get('latitude')
     longitude = request.args.get('longitude')
     roration_model = request.args.get('rotation-model', 'scotese')
@@ -72,7 +72,7 @@ def single_point():
     # because it is iterated over below, consider tracing this whole function
     # live in an interpreter
     pygplates.reconstruct(point, rotation_model, reconstructed_point,
-            reconstuct_time)
+            reconstuct_time, 0)
             #reconstruct_type=pygplates.ReconstructType.motion_path)
 
 
